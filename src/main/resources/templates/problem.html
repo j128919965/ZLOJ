@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.css" rel="stylesheet">
+  <script src="https://cdn.bootcss.com/popper.js/1.15.0/umd/popper.min.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <title>Document</title>
+
+  <link rel="stylesheet" href="/css/Problem_common.css">
+  <link rel="stylesheet" href="/css/problem_answer.css">
+  <script src="/js/problemCommon.js"></script>
+  <script src="/js/problemAnswer.js"></script>
+
+  <link rel="stylesheet" href="./../static/css/Problem_common.css">
+  <link rel="stylesheet" href="./../static/css/problem_answer.css">
+  <script src="./../static/js/problemCommon.js"></script>
+  <script src="./../static/js/problemAnswer.js"></script>
+
+
+  <!--begin code mirror -->
+  <!--下面两个是使用Code Mirror必须引入的-->
+  <link rel="stylesheet" href="/codemirror-5.31.0/lib/codemirror.css"/>
+  <script src="/codemirror-5.31.0/lib/codemirror.js"></script>
+  <!--Java代码高亮必须引入-->
+  <script src="/codemirror-5.31.0/clike.js"></script>
+  <!--引入css文件，用以支持主题-->
+  <link rel="stylesheet" href="/codemirror-5.31.0/theme/3024-day.css"/>
+
+  <!--支持代码折叠-->
+  <link rel="stylesheet" href="/codemirror-5.31.0/addon/fold/foldgutter.css"/>
+  <script src="/codemirror-5.31.0/addon/fold/foldcode.js"></script>
+  <script src="/codemirror-5.31.0/addon/fold/foldgutter.js"></script>
+  <script src="/codemirror-5.31.0/addon/fold/brace-fold.js"></script>
+  <script src="/codemirror-5.31.0/addon/fold/comment-fold.js"></script>
+  <!--括号匹配-->
+  <script src="/codemirror-5.31.0/addon/edit/matchbrackets.js"></script>
+  <!--end Code Mirror -->
+
+
+</head>
+<body>
+<script>
+
+</script>
+<div class="m-container">
+  <div class="bars-container">
+    <div class="bars-line">
+      <div class="bars">
+        <ul class="barList">
+          <a href="/">
+            <li class="barListItem" style="font-size: 0"><img src="/img/logo.svg" alt=""></li>
+          </a>
+          <a href="/problemSet">
+            <li class="barListItem">题库</li>
+          </a>
+        </ul>
+        <div class="barList">
+          <div class="dropdown barListItem">
+            <button type="button" class="m-btn-head dropdown-toggle" data-toggle="dropdown" id="language" value="1">
+              中
+            </button>
+            <div class="dropdown-menu m-menu">
+              <a class="dropdown-item m-d-item" onclick="changeLanguage(1)">题目以中文显示</a>
+              <a class="dropdown-item m-d-item" onclick="changeLanguage(2)">题目以英文显示</a>
+            </div>
+          </div>
+          <div class=" barListItem" id="login">
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="m-pro-des-and-ans">
+    <div class="half" style="overflow-y:auto;">
+      <div class="coding-tool-bar">
+        <div class="coding-tool" id="des-btn">
+          <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+          题目描述
+        </div>
+        <div class="coding-tool" id="sol-btn">
+          <i class="fa fa-clock-o" aria-hidden="true"></i>
+          提交记录
+        </div>
+      </div>
+      <div class="pro-info-block" id="description_block">
+        <input type="hidden" th:value="${ss}" id="pro_info">
+        <div class="pro-title" id="pro-title"></div>
+        <div class="pro-level" id="pro-level">
+          难度：
+          <span class="level-name" id="level-name">
+          </span>
+          分数：
+          <span class="point-text">
+          </span>
+        </div>
+
+        <div class="pro-discrip"></div>
+      </div>
+      <div class="pro-info-block" id="solved_info_block" style="display: none">
+        <div class="pro-title">提交记录</div>
+        <div class="submit-log-table">
+          <div class="record-title">
+            <div class="record row">
+              <div class="submit-time col-4">提交时间</div>
+              <div class="submit-state col-2">结果</div>
+              <div class="submit-used-time col-3">用时</div>
+              <div class="submit-used-space col-3">内存</div>
+            </div>
+          </div>
+          <div class="record-container">
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+    <div class="half">
+      <div class="coding-tool-bar">
+        <div class="coding-tool" id="getDefaultCode">
+          <div class="m-des-title">恢复默认代码</div>
+          <i class="fa fa-refresh" aria-hidden="true"></i>
+        </div>
+        <div class="coding-tool" id="saveToLocal">
+          <div class="m-des-title">暂存代码在本地</div>
+          <i class="fa fa-download" aria-hidden="true"></i>
+        </div>
+        <div class="coding-tool" id="restoreFromLoacl">
+          <div class="m-des-title">恢复本地暂存的代码</div>
+          <i class="fa fa-upload" aria-hidden="true"></i>
+        </div>
+        <div class="coding-tool" id="getLatestSubmit">
+          <div class="m-des-title">恢复上次提交的代码</div>
+          <i class="fa fa-code" aria-hidden="true"></i>
+        </div>
+      </div>
+      <div class="coding-area">
+        <textarea class="form-control" id="code" name="code"></textarea>
+      </div>
+      <div class="submit">
+        <div class="m-btn" id="submit">提交</div>
+        <div class="pending">pending...</div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

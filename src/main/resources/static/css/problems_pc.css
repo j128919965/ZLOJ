@@ -1,0 +1,250 @@
+
+.m-menu{
+    min-width: 120px;
+    width: 120px;
+}
+.m-menu>a{
+    font-size: 12px ;
+    color: rgba(0,0,0,0.65);
+    padding: 2px 14px;
+}
+.head-link{
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+}
+.head-link>img {
+    width: 100%;
+}
+
+.cards-title{
+    font-weight:lighter ;
+    font-size: 22px;
+    line-height: 30px;
+    height: 30px;
+    width: 100%;
+}
+
+.cards-container{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: start;
+    border-bottom: 1px solid #aaa;
+    padding-bottom: 20px;
+    margin: 20px 0;
+}
+.card-outer-orange{
+    border-radius: 15px;
+    margin: 10px;
+    background: linear-gradient(#f7dc58, #fea116);
+}
+.card-outer-blue{
+    border-radius: 15px;
+    margin: 10px;
+    background:linear-gradient(#70def7, #106afe);
+}
+.card-outer-green{
+    border-radius: 15px;
+    margin: 10px;
+    background:linear-gradient(#8eeb98, #449d44);
+}
+.card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url(https://static.leetcode-cn.com/cn-assets/webpack_bundles/images/algorithm_bg.90562ce29.png);
+    background-size: 100% 100%;
+    height: 100px;
+    min-width: 120px;
+    border-radius: 15px;
+    color: white;
+    font-size: 16px;
+}
+
+.solved{
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.m-label {
+    padding: .3em .7em .4em;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 1020px;
+}
+
+
+.list-search{
+    width: 100%;
+    border: 1px solid #aaa;
+    border-radius: 15px;
+    height: 30px;
+    line-height: 30px;
+    padding: 5px 12px;
+    outline: none;
+}
+
+.list-search:focus{
+    border-color: #66afe9
+}
+
+.space-line{
+    border-bottom: 1px solid #e4eaf1;
+}
+
+.search-bar-control{
+    display: flex;
+    padding: 20px 0;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.ques-list{
+    width: 100%;
+    font-weight: lighter;
+}
+.ques-list>thead{
+    width: 100%;
+    color: black;
+    font-size: 16px;
+    height: 35px;
+    line-height: 35px;
+    border-top: 1px solid #f1f1f1;
+}
+
+.ques-row{
+    padding: 10px 0;
+}
+
+.ques-row:hover{
+    background: rgba(231, 246, 252, 0.78);
+}
+
+.ques-solved{
+    font-weight: bolder;
+    color: var(--success);
+}
+
+.row-single{
+    background: #fafafa;
+}
+
+.row-double{
+    background: white;
+}
+
+.ques-name{
+    color: #66afe9;
+    cursor: pointer;
+}
+
+.ques-level-easy{
+    color: var(--success);
+}
+
+.ques-level-medium{
+    color: var(--warning);
+}
+
+.ques-level-hard{
+    color: var(--danger);
+}
+
+.m-rate{
+    margin: 0 0 40px 40px ;
+}
+
+.rate-top{
+    margin-top: 20px;
+    border-radius: 20px 20px 10px 10px;
+    background: #f1f1f1;
+    padding: 10px 20px;
+    text-align: center;
+}
+.rate-bottom{
+    margin-top: 20px;
+    border-radius: 10px 10px 20px 20px;
+    background: #f1f1f1;
+    display: flex;
+    padding: 5px 10px;
+    justify-content: space-around;
+}
+.rate-bottom>div{
+    width: 50%;
+    padding: 5px 10px;
+}
+#all_nums{
+    color: var(--primary);
+}
+
+#solved_nums{
+    color: var(--success);
+}
+
+.solved-info{
+    display: flex;
+}
+
+.solved-item{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 34%;
+    line-height: 20px;
+}
+
+.blank-10{
+    height: 10px;
+}
+
+.hot-ques{
+    width: 100%;
+    line-height: 20px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 12px;
+}
+.hot-ques:hover{
+    background: #f1f1f1;
+}
+.hot-ques:before{
+    content: "\f0ca";
+    margin-right: 10px;
+}
+.cvs-container{
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0;
+    text-align: center;
+}
+@media screen and (max-width: 500px) {
+    .card{
+        width: 50%;
+        height: 50px;
+    }
+
+    .cards-container{
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    .m-smart-padding{
+        margin: 20px 0;
+    }
+
+    .m-rate{
+        margin: 20px 10px;
+    }
+
+    .cvs-container{
+        padding: 0 30px;
+    }
+}

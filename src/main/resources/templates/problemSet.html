@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.css" rel="stylesheet">
+  <script src="https://cdn.bootcss.com/popper.js/1.15.0/umd/popper.min.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <title>Document</title>
+
+  <link rel="stylesheet" href="/css/Problem_common.css">
+  <link rel="stylesheet" href="/css/problems_pc.css">
+  <script src="/js/problemCommon.js"></script>
+  <script src="/js/problems_pc.js"></script>
+
+
+</head>
+<body>
+<div class="m-container">
+  <div class="bars-container">
+    <div class="bars-line">
+      <div class="bars">
+        <ul class="barList">
+          <a href="/"><li class="barListItem" style="font-size: 0"><img src="img/logo.svg" alt=""></li></a>
+          <a href="/problemSet"><li class="barListItem">题库</li></a>
+        </ul>
+        <div class="barList">
+          <div class="dropdown barListItem">
+            <button type="button" class="m-btn-head dropdown-toggle" data-toggle="dropdown" id="language" value="1">
+              中
+            </button>
+            <div class="dropdown-menu m-menu">
+              <a class="dropdown-item m-d-item" onclick="changeLanguage(1)">题目以中文显示</a>
+              <a class="dropdown-item m-d-item"  onclick="changeLanguage(2)">题目以英文显示</a>
+            </div>
+          </div>
+          <div class=" barListItem" id="login">
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9 questions-main">
+        <div class="row">
+            <div class="col-12">
+              <div class="cards-title">
+                <i class="fa fa-th-large"></i>&nbsp;&nbsp;分类 - 全部
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="cards-container">
+                <div class="card-outer-green">
+                  <div class="card">动态规划</div>
+                </div>
+                <div class="card-outer-orange">
+                  <div class="card">贪心</div>
+                </div>
+                <div class="card-outer-blue">
+                  <div class="card">数据结构</div>
+                </div>
+              </div>
+            </div>
+        </div>
+        <div class="row search-bar-control">
+          <div class="col-lg-7 m-smart-padding">
+            <input type="text" class="list-search" placeholder="搜索题目或编号">
+          </div>
+          <div class="m-btn"> 搜 索 </div>
+          <div class="m-btn">随机开始</div>
+        </div>
+        <table class="ques-list">
+          <thead>
+            <tr class="row">
+              <th class="col-2 col-md-2">ID</th>
+              <th class="col-6 col-md-6">题名</th>
+              <th class="col-2 col-md-2">分数</th>
+              <th class="col-2 col-md-2">难度</th>
+            </tr>
+          </thead>
+          <tbody id="proList">
+
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md-3">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="m-rate" id="m-rate-block">
+              <div class="cards-title">
+                <i class="fa fa-bar-chart-o" aria-hidden="true"></i>
+                &nbsp;我的进展
+              </div>
+              <div class="rate-top">
+                当前进度：
+                <span id="solved_nums"></span> /
+                <span id="all_nums"></span>
+              </div>
+              <div class="cvs-container">
+                <canvas id="cvs" style="margin: 10px 0"></canvas>
+              </div>
+              <div class="solved-info">
+                <div class="solved-item ques-level-easy">
+                  <span id="solved-easy-num"></span>
+                  <span>简单</span>
+                </div>
+                <div class="solved-item ques-level-medium">
+                  <span id="solved-medium-num"></span>
+                  <span>中等</span>
+                </div>
+                <div class="solved-item ques-level-hard">
+                  <span id="solved-hard-num"></span>
+                  <span>困难</span>
+                </div>
+              </div>
+              <div class="rate-bottom">
+                <div>积分：<span id="point"></span></div>
+                <div>等级：<span id="user_level"></span></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="m-rate m-hot-card">
+              <div class="cards-title">
+                <i class="fa fa-fire" aria-hidden="true"></i>
+                &nbsp;热门题目
+              </div>
+              <div class="blank-10"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
