@@ -1,5 +1,7 @@
 package xyz.lizhaorong.webfinal.utils.pending;
 
+import xyz.lizhaorong.webfinal.Entity.State;
+import xyz.lizhaorong.webfinal.Entity.SubmitRecord;
 import xyz.lizhaorong.webfinal.utils.exception.CompileWrongException;
 import xyz.lizhaorong.webfinal.utils.exception.RunningException;
 
@@ -7,46 +9,44 @@ import java.lang.reflect.Method;
 import java.time.LocalDateTime;
 
 public class ClassRunner {
-    public void run(int proId,int userId,String code) throws CompileWrongException, RunningException {
-        MyCompiler compiler = new MyCompiler(proId,userId, LocalDateTime.now());
-        if(compiler.compile(code)!=0){
-            throw new CompileWrongException();
-        };
+    public SubmitRecord run(int proId,int userId,String code){
+        LocalDateTime time = LocalDateTime.now();
+        SubmitRecord record = new SubmitRecord();
+        record.setId(0);
+        record.setPid(proId);
+        record.setUid(userId);
+        record.setTime(time);
+        record.setState(State.ACCEPT);
 
+        MyCompiler compiler = new MyCompiler(proId,userId,time );
+        try {
+            if(compiler.compile(code)!=0){
+                record.setState(State.COMPILE_WRONG);
+                return record;
+            }
+        } catch (CompileWrongException e) {
+            record.setState(State.COMPILE_WRONG);
+            return record;
+        }
+
+
+        long start , end;
         DiskClassLoader loader = new DiskClassLoader(compiler.getClassPath());
         try {
             Class c = loader.loadClass("Main");
             if(c!=null){
                 Object obj = c.newInstance();
-                Method method = c.getDeclaredMethod("main",String[].class);
-                method.invoke(null, (Object) new String[]{"123465"});
+                Method method = c.getDeclaredMethod("run");
+                start = System.currentTimeMillis();
+                int s = (Integer) method.invoke(null,  null);
+                if(s!=0)record.setState(State.WRONG_ANSWER);
+                end = System.currentTimeMillis();
+                record.setUsed_time(end-start);
             }
         } catch (Exception e){
-            throw new RunningException();
+            record.setState(State.RUNTIME_ERROR);
+            record.setUsed_time(-1);
         }
-    }
-
-    public static void main(String[] args) {
-        try {
-            new ClassRunner().run(3,2,"class Solution{\n" +
-                    "    public String addTwoNums(String a,String b){\n" +
-                    "       return \"hello\";\n" +
-                    "    }\n" +
-                    "}\n" +
-                    "\n" +
-                    "public class Main{\n" +
-                    "    public static void main(String[] args){\n" +
-                    "        boolean x = true;" +
-                    "        while(x){}ddd" +
-                    "        Solution solution = new Solution();\n" +
-                    "        System.out.println(solution.addTwoNums(\"A\",\"b\"));\n" +
-                    "    }\n" +
-                    "    \n" +
-                    "}");
-        } catch (CompileWrongException e) {
-            System.out.println("编译错误");
-        } catch (RunningException e) {
-            System.out.println("运行时错误");
-        }
+        return record;
     }
 }

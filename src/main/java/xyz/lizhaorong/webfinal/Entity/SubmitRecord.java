@@ -7,10 +7,24 @@ public class SubmitRecord {
     private int pid;
     private int uid;
     private LocalDateTime time;
-    private byte state;
+    private State state;
     private long used_time;
     private long used_space;
 
+    public SubmitRecord() {
+        used_space = -1;
+        used_time = -1;
+    }
+
+    public SubmitRecord(int id, int pid, int uid, LocalDateTime time, State state, long used_time, long used_space) {
+        this.id = id;
+        this.pid = pid;
+        this.uid = uid;
+        this.time = time;
+        this.state = state;
+        this.used_time = used_time;
+        this.used_space = used_space;
+    }
 
     @Override
     public String toString() {
@@ -23,16 +37,6 @@ public class SubmitRecord {
                 ", used_time=" + used_time +
                 ", used_space=" + used_space +
                 '}';
-    }
-
-    public SubmitRecord(int id, int pid, int uid, LocalDateTime time, byte state, long used_time, long used_space) {
-        this.id = id;
-        this.pid = pid;
-        this.uid = uid;
-        this.time = time;
-        this.state = state;
-        this.used_time = used_time;
-        this.used_space = used_space;
     }
 
     public int getId() {
@@ -67,11 +71,11 @@ public class SubmitRecord {
         this.time = time;
     }
 
-    public byte getState() {
+    public State getState() {
         return state;
     }
 
-    public void setState(byte state) {
+    public void setState(State state) {
         this.state = state;
     }
 

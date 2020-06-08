@@ -26,7 +26,7 @@ public class ProblemAnswerController {
     public String problemAnswerPage(@PathVariable("pro_id") int id,Model model){
 
         Problem problem = repository.findProblemByID(id);
-        problem.setLast_code(submitRecordRepository.getLastSubmit(id,2));
+        problem.setLast_code(submitRecordRepository.getLastSubmit(id,1));
 
         Object o = JSONObject.toJSON(problem);
         model.addAttribute("ss",o);

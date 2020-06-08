@@ -2,6 +2,8 @@ package xyz.lizhaorong.webfinal.DAO;
 
 import xyz.lizhaorong.webfinal.Entity.SubmitRecord;
 
+import java.util.List;
+
 public interface SubmitRecordRepository {
 
     String getLastSubmit(int pid,int uid);
@@ -12,6 +14,6 @@ public interface SubmitRecordRepository {
 
     SubmitRecord getRecordByPid(int pid);
 
-    SubmitRecord getRecord(int uid,int pid);
+    List<SubmitRecord> getRecord(int uid, int pid);
 
 }

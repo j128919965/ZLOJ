@@ -113,7 +113,7 @@ function setClick() {
 function submit() {
     $("#submit").toggle();
     $(".pending").toggle();
-    let message = {pid:$("#proID").val(),
+    let message = {pid:problemInfo.id,
         code:editor.getValue(),uid:user.id};
 
     $.ajax({
@@ -146,12 +146,11 @@ function submit() {
 function setAnswerLog(data) {
     let list = $(".record-container").empty();
     for(i in data){
+        console.log(data[i].state)
         let str =
             `<div class="record row">
               <div class="submit-time col-4">${data[i].time}</div>
-              <div class="submit-state col-2"><span style="color: var(--${data[i].state===0?"success":"danger"})">
-              ${data[i].state===0?"通过":"错误"}
-              </span></div>
+              <div class="submit-state col-2">${getState(data[i].state)}</div>
               <div class="submit-used-time col-3">${data[i].used_time}ms</div>
               <div class="submit-used-space col-3">${data[i].used_space}mb</div>
             </div>`
@@ -170,4 +169,13 @@ function getDefaultCode() {
 }
 function getLatestSubmit() {
     editor.setValue(problemInfo.last_code);
+}
+
+function getState(stateCode) {
+    switch (stateCode) {
+        case "ACCEPT":return "<span style=\"color: var(--success)\">解答通过</span>";
+        case "COMPILE_WRONG":return "<span style=\"color: var(--primary)\">编译错误</span>";
+        case "WRONG_ANSWER":return "<span style=\"color: var(--danger)\">解答错误</span>";
+        case "RUNTIME_ERROR":return "<span style=\"color: var(--warning)\">运行时出错</span>";
+    }
 }
