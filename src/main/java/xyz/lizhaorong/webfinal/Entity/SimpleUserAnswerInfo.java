@@ -1,6 +1,6 @@
 package xyz.lizhaorong.webfinal.Entity;
 
-import xyz.lizhaorong.webfinal.utils.PointToLevel;
+import xyz.lizhaorong.webfinal.utils.transform.PointToLevel;
 
 public class SimpleUserAnswerInfo {
     //总题目数量

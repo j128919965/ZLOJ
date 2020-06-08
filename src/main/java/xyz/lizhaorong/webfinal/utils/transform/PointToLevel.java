@@ -1,4 +1,4 @@
-package xyz.lizhaorong.webfinal.utils;
+package xyz.lizhaorong.webfinal.utils.transform;
 
 public class PointToLevel {
     public static String cast(int point){
