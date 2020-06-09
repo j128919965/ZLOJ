@@ -1,5 +1,5 @@
 let data;
-let user;
+
 function setProblemList() {
     let list = $("#proList").empty();
     let language = $("#language").val()=="1";
@@ -105,12 +105,6 @@ function drawCircle(data_arr, color_arr)
 
 function setData(data){
     //TODO
-    user = data.id;
-    if(user==="000"){
-        $("#login").append("<a href='/login'>登录</a>");
-        $("#m-rate-block").hide();
-    }else {
-        $("#login").append("<img src=\"img/1.png\" alt=\"\" id=\"headImg\" class=\"head-link\">")
 
         $("#all_nums").text(data.all);
         $("#solved_nums").text(data.solved);
@@ -128,16 +122,27 @@ function setData(data){
             drawCircle(data_arr, color_arr)
         }
 
-    }
+
 }
 
 $(
     function () {
-        $.get("/solved_info",function(data,status){
-            if(status){
-                setData(data);
-            }
-        });
+        let uid = getCookie("uid");
+        if(uid!=="1"){
+            $("#login").append("<a href='/login'>登录</a>");
+            $("#m-rate-block").hide();
+        }else{
+            $("#login").append("<img src=\"img/1.png\" alt=\"\" id=\"headImg\" class=\"head-link\">")
+                .on("click",function () {
+                    window.location.href = "/userCenter";
+                });
+            $.get("/solved_info",function(data,status){
+                if(status){
+                    setData(data);
+                }
+            });
+        }
+
 
         $.get("/problemListByID",{from:0,limit:10},function (d,status) {
             if(status){

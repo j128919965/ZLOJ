@@ -4,6 +4,20 @@ let problemInfo;
 let user = {id:1,name:"lzr"}
 $(
     function () {
+        let uid = getCookie("uid");
+        if(uid===""){
+            $("#submit").hide();
+            $(".submit-login").show();
+            $(".submit-log-table").hide();
+            $(".submit-log-login").show();
+            $("#login").append("<a href='/login'>登录</a>");
+        }else{
+            $("#login").append("<img src=\"/img/1.png\" alt=\"\" id=\"headImg\" class=\"head-link\">")
+                .on("click",function () {
+                    window.location.href = "/userCenter";
+            });
+
+        }
 
         $(".coding-tool").mouseenter(function(){
             $(this).children(".m-des-title").fadeIn();
@@ -19,15 +33,20 @@ $(
         $("#sol-btn").on("click",function () {
             $("#description_block").hide();
             $("#solved_info_block").show();
-            $.get("/submit/getRecord",{uid:1,pid:problemInfo.id},function (data,status) {
-                if(status){
-                    console.log(data)
-                    setAnswerLog(data);
-                }
-            })
+            if(uid!=="0"){
+                $.get("/submit/getRecord",{uid:1,pid:problemInfo.id},function (data,status) {
+                    if(status){
+                        console.log(data)
+                        setAnswerLog(data);
+                    }
+                })
+            }
         })
 
         $("#submit").on("click",submit);
+        $(".submit-login").on("click",function () {
+            window.location.href="/login";
+        })
 
         setClick();
         setEditor();

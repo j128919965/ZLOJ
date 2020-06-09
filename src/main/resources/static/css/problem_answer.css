@@ -122,7 +122,8 @@ body{
     padding: 15px;
 }
 .submit>.m-btn{
-    font-size: 20px ;
+    font-size: 20px;
+    width: 120px;
 }
 .coding-area{
     width: 100%;
@@ -132,6 +133,18 @@ body{
 .pending{
     color: var(--success);
     display: none;
+}
+
+.submit-login{
+    display: none;
+}
+
+.submit-log-login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    text-align: center;
 }
 
 @media screen and (max-width: 500px){
