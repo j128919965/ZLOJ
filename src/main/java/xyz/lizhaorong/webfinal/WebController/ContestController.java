@@ -5,11 +5,19 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class HomeController {
 
+public class ContestController {
+
+    @RequestMapping("/contest")
     @GetMapping
-    @RequestMapping("/")
-    public String home(){
-        return "index";
+    public String contestPage(){
+        return "contest";
     }
+
+    @RequestMapping("/contestDetail")
+    @GetMapping
+    public String contestDetail(){
+        return "contest-detail";
+    }
+
 }

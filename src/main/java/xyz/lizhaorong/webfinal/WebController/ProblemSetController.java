@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-@RequestMapping
 public class ProblemSetController {
 
     private ProblemRepository jdbc;
@@ -20,12 +19,14 @@ public class ProblemSetController {
         this.jdbc = jdbc;
     }
 
-    @GetMapping("/problemSet")
+    @GetMapping
+    @RequestMapping("/problemSet")
     public String problems(){
         return "problemSet";
     }
 
-    @GetMapping("/solved_info")
+    @GetMapping
+    @RequestMapping("/solved_info")
     @ResponseBody
     public SimpleUserAnswerInfo getInfo(){
         SimpleUserAnswerInfo info = new SimpleUserAnswerInfo();
@@ -41,8 +42,9 @@ public class ProblemSetController {
         return info;
     }
 
-    @GetMapping("/problemListByID")
+    @GetMapping
     @ResponseBody
+    @RequestMapping("/problemListByID")
     public List<Problem.SimpleProblemInfo> getProblemsByID(int from,int limit){
         return (List<Problem.SimpleProblemInfo>) jdbc.getSimpleProblemInfo(from,limit);
     }

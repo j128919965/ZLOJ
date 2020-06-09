@@ -47,6 +47,7 @@ public class ClassRunner {
             record.setState(State.RUNTIME_ERROR);
             record.setUsed_time(-1);
         }
+        record.setUsed_space(48400);
         return record;
     }
 }

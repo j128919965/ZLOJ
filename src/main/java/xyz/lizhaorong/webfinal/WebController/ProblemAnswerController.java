@@ -11,7 +11,7 @@ import xyz.lizhaorong.webfinal.DAO.SubmitRecordRepository;
 import xyz.lizhaorong.webfinal.Entity.Problem;
 
 @Controller
-@RequestMapping
+
 public class ProblemAnswerController {
 
     private ProblemRepository repository;
@@ -23,6 +23,7 @@ public class ProblemAnswerController {
     }
 
     @GetMapping("/problems/{pro_id}")
+    @RequestMapping
     public String problemAnswerPage(@PathVariable("pro_id") int id,Model model){
 
         Problem problem = repository.findProblemByID(id);

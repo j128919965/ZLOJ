@@ -1,10 +1,98 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-  <meta charset="UTF-8">
-  <title>Title</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>OJ_index</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1,,user-scalable=no">
+  <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.css" rel="stylesheet">
+  <script src="https://cdn.bootcss.com/popper.js/1.15.0/umd/popper.min.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.js"></script>
+  <link href="css/index.css" rel="stylesheet">
 </head>
+
 <body>
-<a href="/problemSet">题库</a>
+  <header class="m-nav">
+    <div class="m-nav-topbar">
+      <section class="m-nav-topbar_left">
+        <span class="m-nav-topbar_title">ZLCODE</span>
+        <div class="m-nav-topbar_left-scroller">
+          <a href="/problemSet">Problem</a>
+          <a href="/contest">Contest</a>
+          <a href="">Explore</a>
+          <a href="">About</a>
+        </div>
+      </section>
+      <section class="m-nav-topbar_right">
+        <div class="m-nav-topbar_right-user">
+          <img class="user-image"></img>
+        </div>
+        <div class="m-nav-topbar_right-login">
+          <input type="button" class="m-btn" name="signIn" value="Sign in">
+        </div>
+      </section>
+    </div>
+  </header>
+  <div class="container">
+    <section class="m-news container-fluid">
+      <div class="row">
+        <div class="m-news-box col-sm-6">
+          <span class="m-news-title">A New Way to Learn</span>
+          <span class="m-news-detail">LeetCode is the best platform to help you enhance your skills, expand your
+            knowledge and prepare for technical interviews.</span>
+          <input type="button" class="m-btn" name="register" value="Create Account">
+        </div>
+        <div class="col-6">
+          <img src="img/new1.png" alt="" class="m-news-img">
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="m-banner">
+    <hr aria-hidden="true">
+    <span>Leetcode</span>
+    <hr aria-hidden="true">
+  </div>
+  <div class="container">
+    <section class="m-content container-fluid">
+      <div class="m-sec row">
+        <div class="m-sec-box col-sm-6 textright">
+          <span class="m-sec-title colorgreen">Start Exploring</span>
+          <p class="m-sec-detail">Explore is a well-organized tool that helps you get the most out of LeetCode by
+            providing structure to guide your progress towards the next step in your programming career.</p>
+          <a href="">Get Started ></a>
+        </div>
+        <div class="col-sm-6">
+        </div>
+      </div>
+      <div class="m-sec row">
+        <div class="m-sec-box col-sm-6">
+          <span class="m-sec-title colorblue">Questions & Community</span>
+          <p class="m-sec-detail">Over 1550 questions for you to practice. Come and join one of the largest tech
+            communities with hundreds of thousands of active users</p>
+          <a href="">View Questions ></a>
+        </div>
+        <div class="m-sec-box col-sm-6">
+          <span class="m-sec-title colorbrown">Contests & Competitions</span>
+          <p class="m-sec-detail">Practice makes perfect. Try your hand at past Leetcode problems to prepare for the
+            next round.participate in our contests to challenge yourself and earn rewards.</p>
+          <a href="">Join A Competition ></a>
+        </div>
+      </div>
+      <div class="m-sec row">
+        <div class="m-sec-box col-12 textcenter">
+          <span class="m-sec-title colorgreen">Developer</span>
+          <p class="m-sec-detail">We now support 14 popular coding languages. At our core, LeetCode is about developers.
+            Our powerful development tools such as Playground help you test, debug and even write your own projects
+            online.</p>
+
+        </div>
+      </div>
+    </section>
+  </div>
+
 </body>
+
 </html>

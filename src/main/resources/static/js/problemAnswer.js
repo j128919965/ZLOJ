@@ -6,9 +6,9 @@ $(
     function () {
 
         $(".coding-tool").mouseenter(function(){
-            $(this).children(".m-des-title").toggle();
+            $(this).children(".m-des-title").fadeIn();
         }).mouseleave(function () {
-            $(this).children(".m-des-title").toggle();
+            $(this).children(".m-des-title").fadeOut();
         });
 
         $("#des-btn").on("click",function () {
@@ -137,22 +137,17 @@ function submit() {
     })
 
 }
-
-
-/*data:{
-    time,space,state,sub-time
-}
-*/
-function setAnswerLog(data) {
+let nc;
+function setAnswerLog(data)  {
     let list = $(".record-container").empty();
+    nc = data;
     for(i in data){
-        console.log(data[i].state)
         let str =
             `<div class="record row">
               <div class="submit-time col-4">${data[i].time}</div>
               <div class="submit-state col-2">${getState(data[i].state)}</div>
               <div class="submit-used-time col-3">${data[i].used_time}ms</div>
-              <div class="submit-used-space col-3">${data[i].used_space}mb</div>
+              <div class="submit-used-space col-3">${data[i].used_space===-1?"NAN":(data[i].used_space/1024).toFixed(2)+"mb"}</div>
             </div>`
         list.append(str);
     }
@@ -168,14 +163,19 @@ function getDefaultCode() {
     editor.setValue(problemInfo.default_code);
 }
 function getLatestSubmit() {
-    editor.setValue(problemInfo.last_code);
+    if(!!problemInfo.last_code){
+        editor.setValue(problemInfo.last_code);
+    }
+    else {
+        getDefaultCode();
+    }
 }
 
 function getState(stateCode) {
     switch (stateCode) {
-        case "ACCEPT":return "<span style=\"color: var(--success)\">解答通过</span>";
-        case "COMPILE_WRONG":return "<span style=\"color: var(--primary)\">编译错误</span>";
-        case "WRONG_ANSWER":return "<span style=\"color: var(--danger)\">解答错误</span>";
-        case "RUNTIME_ERROR":return "<span style=\"color: var(--warning)\">运行时出错</span>";
+        case "ACCEPT":return "<span style=\"color: #28a745\">解答通过</span>";
+        case "COMPILE_WRONG":return "<span style=\"color: #007bff\">编译错误</span>";
+        case "WRONG_ANSWER":return "<span style=\"color: #dc3545\">解答错误</span>";
+        case "RUNTIME_ERROR":return "<span style=\"color:#ffc107\">运行时出错</span>";
     }
 }

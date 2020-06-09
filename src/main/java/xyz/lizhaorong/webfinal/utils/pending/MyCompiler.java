@@ -32,10 +32,20 @@ public class MyCompiler {
         classPath = "D://mywebfinal//classes//"+proId+"//"+userId+"//"
                 +time.format(DateTimeFormatter
                 .ofPattern("yyyy-MM-dd-HH-mm-ss"));
+
+//        classPath = "//home//mywebfinal//classes//"+proId+"//"+userId+"//"
+//                +time.format(DateTimeFormatter
+//                .ofPattern("yyyy-MM-dd-HH-mm-ss"));
+
         sourcePath = "D://mywebfinal//sources//"+proId+"//"+userId+"//"
                 +time.format(DateTimeFormatter
                 .ofPattern("yyyy-MM-dd-HH-mm-ss")
         )+"//Main.java";
+
+//        sourcePath = "//home//mywebfinal//sources//"+proId+"//"+userId+"//"
+//                +time.format(DateTimeFormatter
+//                .ofPattern("yyyy-MM-dd-HH-mm-ss")
+//        )+"//Main.java";
         System.out.println(sourcePath);
     }
 

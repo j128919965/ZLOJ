@@ -1,0 +1,68 @@
+@charset "UTF-8";
+/**
+ * 
+ * @authors ZFXG
+ * @date    2020-06-02 20:32:38
+ * @version $Id$
+ */
+
+.contest-cards {
+  display: flex;
+  margin-top: 10rem;
+  margin-bottom: 2.0rem;
+}
+
+.contest-cards>div:first-child>div {
+  background: linear-gradient(#fffc43, #ffd479);
+
+}
+
+.contest-cards>div:last-child>div {
+  background: linear-gradient(#4fe3f8, #0e99d0);
+  color: #FFF;
+}
+
+.contest-cards>div:first-child>.contest-intro {
+  color: #ddd;
+}
+
+.contest-cards-box {
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  height: 15.0rem;
+  padding: 1.0rem 1.5rem;
+  box-shadow: 0 2px 6px 0 rgba(0,0,0,.12);
+}
+
+.contest-cards-box>.contest-intro {
+  font-size: 1.2rem;
+}
+
+.contest-cards-box>.contest-title {
+  font-size: 2.0rem;
+  font-weight: bold;
+}
+
+.contest-cards-box>.contest-schedual {
+  font-size: 1.0rem;
+} 
+
+.contest-cards-box>.contest-addto {
+  font-size: 1.0rem;
+}
+
+.contest-cards-box>.contest-addto>img {
+  margin-top: -0.2rem;
+  margin-right: 0.5rem;
+}
+
+.contest-cards-box>.contest-footer {
+  position: absolute;
+  bottom: 0.5rem; 
+}
+
+.contest-cards-box>.contest-footer>img {
+  margin-top: -0.2rem;
+  margin-right: 0.5rem;
+}
