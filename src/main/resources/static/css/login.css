@@ -15,8 +15,8 @@ body {
 }
 
 .m-login {
-  background-color: #FFF;
-  margin:0.2rem auto;
+  background-color: #FaFaFa;
+  margin:100px auto;
   border-radius: 3px;
   text-align: center;
   box-shadow: 0 2px 6px 0 rgba(0,0,0,.12);

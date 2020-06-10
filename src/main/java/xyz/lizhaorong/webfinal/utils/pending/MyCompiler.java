@@ -10,6 +10,9 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+/**
+ * 运行时编译
+ */
 public class MyCompiler {
     private int proId;
     private int userId;
@@ -29,23 +32,23 @@ public class MyCompiler {
         this.time = time;
         this.proId = proId;
         this.userId = userId;
-        classPath = "D://mywebfinal//classes//"+proId+"//"+userId+"//"
-                +time.format(DateTimeFormatter
-                .ofPattern("yyyy-MM-dd-HH-mm-ss"));
-
-//        classPath = "//home//mywebfinal//classes//"+proId+"//"+userId+"//"
+//        classPath = "D://mywebfinal//classes//"+proId+"//"+userId+"//"
 //                +time.format(DateTimeFormatter
 //                .ofPattern("yyyy-MM-dd-HH-mm-ss"));
 
-        sourcePath = "D://mywebfinal//sources//"+proId+"//"+userId+"//"
+        classPath = "//home//mywebfinal//classes//"+proId+"//"+userId+"//"
                 +time.format(DateTimeFormatter
-                .ofPattern("yyyy-MM-dd-HH-mm-ss")
-        )+"//Main.java";
+                .ofPattern("yyyy-MM-dd-HH-mm-ss"));
 
-//        sourcePath = "//home//mywebfinal//sources//"+proId+"//"+userId+"//"
+//        sourcePath = "D://mywebfinal//sources//"+proId+"//"+userId+"//"
 //                +time.format(DateTimeFormatter
 //                .ofPattern("yyyy-MM-dd-HH-mm-ss")
 //        )+"//Main.java";
+
+        sourcePath = "//home//mywebfinal//sources//"+proId+"//"+userId+"//"
+                +time.format(DateTimeFormatter
+                .ofPattern("yyyy-MM-dd-HH-mm-ss")
+        )+"//Main.java";
         System.out.println(sourcePath);
     }
 
@@ -71,6 +74,7 @@ public class MyCompiler {
 
         JavaCompiler javac = ToolProvider.getSystemJavaCompiler();
         try{
+            //编译
             int status = javac.run(null,null,null,"-d",classPath,sourcePath);
             if(status!=0)return 1;
         }catch (Exception e){

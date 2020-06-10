@@ -25,6 +25,10 @@ public class ProblemSetController {
         return "problemSet";
     }
 
+    /**
+     * 获取用户信息（MOCK）
+     * @return mock-info
+     */
     @GetMapping
     @RequestMapping("/solved_info")
     @ResponseBody
@@ -42,6 +46,12 @@ public class ProblemSetController {
         return info;
     }
 
+    /**
+     * 返回题目列表
+     * @param from 开始
+     * @param limit 每页大小
+     * @return page
+     */
     @GetMapping
     @ResponseBody
     @RequestMapping("/problemListByID")

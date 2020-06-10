@@ -8,6 +8,7 @@ import java.net.URL;
 
 /**
  * 从本地加载文件
+ * 加载类到虚拟机
  */
 public class DiskClassLoader extends ClassLoader {
     private String mLibPath;

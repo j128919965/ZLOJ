@@ -33,7 +33,7 @@ header>.m-nav-topbar>.m-nav-topbar_left {
   align-items: center;
 }
 
-header>.m-nav-topbar>.m-nav-topbar_left>span {
+.m-nav-topbar_title {
   font-size: 1.5rem;
   font-weight: bold;
   color: #000;
@@ -64,11 +64,11 @@ header>.m-nav-topbar>.m-nav-topbar_right {
   margin-right: 2rem;
 }
 
-header>.m-nav-topbar>.m-nav-topbar_right>.m-nav-topbar_right-user {
-  display: none;
+.m-nav-topbar_right-user {
+  order: 99;
 }
 
-header>.m-nav-topbar>.m-nav-topbar_right>.m-nav-topbar_right-user>.user-image {
+.m-nav-topbar_right-user>.user-image {
   background-size: 50px 50px;
   height: 50px;
   width: 50px;
@@ -78,8 +78,8 @@ header>.m-nav-topbar>.m-nav-topbar_right>.m-nav-topbar_right-user>.user-image {
   overflow: hidden;
 }
 
-header>.m-nav-topbar>.m-nav-topbar_right>.m-nav-topbar_right-login {
-  display: ;
+.m-nav-topbar_right-login {
+  order: 99;
 }
 
 .m-btn {
@@ -113,9 +113,7 @@ header>.m-nav-topbar>.m-nav-topbar_right>.m-nav-topbar_right-login {
 }
 
 .m-news-img {
-  margin-top: -8rem;
-  width: 40rem;
-  height: 35rem;
+  width: 100%;
 }
 
 .m-banner {
@@ -144,7 +142,7 @@ header>.m-nav-topbar>.m-nav-topbar_right>.m-nav-topbar_right-login {
 }
 
 .m-content>.m-sec {
-  margin-bottom: 10.0rem;
+  margin-bottom: 5.0rem;
 }
 
 .m-content>.m-sec>.m-sec-box {
@@ -155,11 +153,24 @@ header>.m-nav-topbar>.m-nav-topbar_right>.m-nav-topbar_right-login {
 .m-content>.m-sec>.m-sec-box>.m-sec-title {
   font-size: 1.5rem;
   font-weight: bold;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.0rem;
+}
+
+.m-sec-titleimg {
+  width: 70px;
+  height: 64px;
+}
+
+.img-box>img:first-child {
+  z-index: 2;
+}
+
+.img-box>img:nth-child(2) {
+  z-index: 1;
 }
 
 .m-content>.m-sec>.m-sec-box>.m-sec-detail {
-  margin: auto;
+  margin: 0.5rem auto;
   max-width: 40rem;
   font-size: 1.0rem;
   color: #8f8f8f;
@@ -168,6 +179,7 @@ header>.m-nav-topbar>.m-nav-topbar_right>.m-nav-topbar_right-login {
 .m-content>.m-sec>.m-sec-box>a {
   font-size: 1.0rem;
   text-decoration: none;
+  margin-bottom: 2.0rem;
 }
 
 .textright {
@@ -196,4 +208,14 @@ header>.m-nav-topbar>.m-nav-topbar_right>.m-nav-topbar_right-login {
 
 .selected {
   color: #000;
+}
+
+.bigimg {
+  height: 300px;
+}
+
+@media screen and (min-width: 500px ){
+  .m-news-img{
+    height: 35rem;
+  }
 }

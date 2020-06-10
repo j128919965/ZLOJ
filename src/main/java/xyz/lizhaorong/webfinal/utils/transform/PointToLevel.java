@@ -1,5 +1,8 @@
 package xyz.lizhaorong.webfinal.utils.transform;
 
+/**
+ * 转换分数为等级
+ */
 public class PointToLevel {
     public static String cast(int point){
         if(10 >= point){

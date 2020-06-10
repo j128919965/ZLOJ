@@ -26,8 +26,8 @@ public class JDBCSubmitRecordRepository implements SubmitRecordRepository{
     @Override
     public String getLastSubmit(int pid,int uid) {
         StringBuilder sb = new StringBuilder();
-//        File f = new File("\\home\\mywebfinal\\sources\\"+pid+"\\"+uid);
-        File f = new File("D:\\mywebfinal\\sources\\"+pid+"\\"+uid);
+        File f = new File("/home/mywebfinal/sources/"+pid+"/"+uid);
+//        File f = new File("D:\\mywebfinal\\sources\\"+pid+"\\"+uid);
         if(!f.exists())f.mkdirs();
         File[] fs = f.listFiles();
         if(fs==null||fs.length==0){
@@ -58,15 +58,6 @@ public class JDBCSubmitRecordRepository implements SubmitRecordRepository{
         );
     }
 
-    @Override
-    public SubmitRecord getRecordByUid(int uid) {
-        return null;
-    }
-
-    @Override
-    public SubmitRecord getRecordByPid(int pid) {
-        return null;
-    }
 
     @Override
     public List<SubmitRecord> getRecord(int uid, int pid) {

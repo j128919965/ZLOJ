@@ -1,9 +1,10 @@
 let s;
 let editor;
 let problemInfo;
-let user = {id:1,name:"lzr"}
+
 $(
     function () {
+        //
         let uid = getCookie("uid");
         if(uid===""){
             $("#submit").hide();
@@ -130,10 +131,11 @@ function setClick() {
 }
 
 function submit() {
+    let userId = parseInt(getCookie("uid"));
     $("#submit").toggle();
     $(".pending").toggle();
     let message = {pid:problemInfo.id,
-        code:editor.getValue(),uid:user.id};
+        code:editor.getValue(),uid:userId};
 
     $.ajax({
         type:'POST',

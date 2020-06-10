@@ -22,6 +22,13 @@ public class ProblemAnswerController {
         this.submitRecordRepository = submitRecordRepository;
     }
 
+
+    /**
+     * 获取答题页面，并将题目信息放入页面中
+     * @param id 题目id
+     * @param model model
+     * @return page
+     */
     @GetMapping("/problems/{pro_id}")
     public String problemAnswerPage(@PathVariable("pro_id") int id,Model model){
 

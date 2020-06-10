@@ -12,48 +12,50 @@
   <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.js"></script>
 
   <script src="/js/problemCommon.js"></script>
-  <link href="css/index.css" rel="stylesheet">
+  <link href="/css/index.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/Problem_common.css">
 </head>
 
 <body>
-  <header class="m-nav">
-    <div class="m-nav-topbar">
-      <section class="m-nav-topbar_left">
-        <span class="m-nav-topbar_title">ZLCODE</span>
-        <div class="m-nav-topbar_left-scroller">
-          <a href="/problemSet">Problem</a>
-          <a href="/contest">Contest</a>
-          <a href="">Explore</a>
-          <a href="">About</a>
+<div class="bars-container">
+  <div class="bars-line">
+    <div class="bars">
+      <ul class="barList">
+        <a href="/">
+          <span class="barListItem" style="font-weight: bolder">ZLCODE</span>
+        </a>
+        <a href="/problemSet">
+          <li class="barListItem">题库</li>
+        </a>
+        <a href="/contest">
+          <li class="barListItem">测试</li>
+        </a>
+      </ul>
+      <div class="barList">
+        <div class="dropdown barListItem">
+          <button type="button" class="m-btn-head dropdown-toggle" data-toggle="dropdown" id="language" value="1">
+            中
+          </button>
+          <div class="dropdown-menu m-menu">
+            <a class="dropdown-item m-d-item" onclick="changeLanguage(1)">题目以中文显示</a>
+            <a class="dropdown-item m-d-item" onclick="changeLanguage(2)">题目以英文显示</a>
+          </div>
         </div>
-      </section>
-      <section class="m-nav-topbar_right">
-        <div class="m-nav-topbar_right-user">
-          <img class="user-image" src="/img/1.png"></img>
+        <div class=" barListItem" id="login">
+
         </div>
-        <div class="m-nav-topbar_right-login">
-          <input type="button" class="m-btn" name="signIn" value="Sign in" id="login-btn">
-          <script>
+        <script>
             let uid = getCookie("uid");
-
-            if(uid===""){
-                $(".m-nav-topbar_right-user").hide();
-                $("#login-btn").show().on("click",()=>{
-                    window.location.href = "/login";
-                })
+            if(uid!=="1"){
+                $("#login").append("<a href='/login'>登录</a>");
             }else{
-                $(".m-nav-topbar_right-user").show().on("click",()=>{
-                    window.location.href = "/userCenter";
-                });
-                $("#login-btn").hide();
+                $("#login").append("<img src=\"img/1.png\" alt=\"\" id=\"headImg\" class=\"head-link\">")
             }
-
-
-          </script>
-        </div>
-      </section>
+        </script>
+      </div>
     </div>
-  </header>
+  </div>
+</div>
   <div class="container">
     <section class="m-news container-fluid">
       <div class="row">
@@ -63,7 +65,7 @@
             knowledge and prepare for technical interviews.</span>
           <input type="button" class="m-btn" name="register" value="Create Account">
         </div>
-        <div class="col-6">
+        <div class="col-sm-6">
           <img src="img/new1.png" alt="" class="m-news-img">
         </div>
       </div>

@@ -7,6 +7,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class HomeController {
 
+    /**
+     * 获取根目录页面
+     * @return page
+     */
     @GetMapping
     @RequestMapping("/")
     public String home(){
